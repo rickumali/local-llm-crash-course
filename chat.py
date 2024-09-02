@@ -6,4 +6,7 @@ prompt = """What is the name of the capital city of India, she asked.
           Please only respond with the city name and then stop talking. 
           He answered: """
 
-print(prompt + llm(prompt))
+for word in llm(prompt, stream=True):
+    print(word, end="", flush=True)
+
+print()
