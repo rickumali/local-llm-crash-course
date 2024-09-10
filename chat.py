@@ -1,3 +1,4 @@
+import chainlit as cl
 from ctransformers import AutoModelForCausalLM
 
 llm = AutoModelForCausalLM.from_pretrained("zoltanctoth/orca_mini_3B-GGUF", model_file="orca-mini-3b.q4_0.gguf")
@@ -13,6 +14,12 @@ def get_prompt(instruction: str, history: list[str] = None) -> str:
     return prompt
 
 
+@cl.on_message
+async def on_message(message: cl.Message):
+    response = f"Hello, you just sent: {message.content}!"
+    await cl.Message(response).send()
+
+"""
 history = []
 
 question = "Which city is the capital of India?"
@@ -34,3 +41,4 @@ for word in llm(get_prompt(question, history), stream=True):
     answer += word
 
 print()
+"""
