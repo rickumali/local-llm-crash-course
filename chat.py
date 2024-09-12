@@ -3,11 +3,15 @@ from ctransformers import AutoModelForCausalLM
 
 
 def get_prompt(instruction: str, history: list[str] = None) -> str:
-    system = "You are an AI assistant that gives helpful answers. You answer the questions in a short and concise way."
-    prompt = f"### System:\n{system}\n\n### User:\n"
-    if len(history) > 0:
-        prompt += f"This is the conversation history: {''.join(history)}. Now answer the question: "
-    prompt += f"{instruction}\n\n### Response:\n"
+    if instruction.lower() == "forget everything":
+        history.clear()
+        prompt = "forget everything"
+    else:
+        system = "You are an AI assistant that gives helpful answers. You answer the questions in a short and concise way."
+        prompt = f"### System:\n{system}\n\n### User:\n"
+        if len(history) > 0:
+            prompt += f"This is the conversation history: {''.join(history)}. Now answer the question: "
+        prompt += f"{instruction}\n\n### Response:\n"
     return prompt
 
 
@@ -19,9 +23,13 @@ async def on_message(message: cl.Message):
 
     prompt = get_prompt(message.content, message_history)
     response = ""
-    for word in llm(prompt, stream=True):
-        await msg.stream_token(word)
-        response += word
+    if prompt == "forget everything":
+        response = "Uh oh, I've just forgotten our conversation history."
+        await msg.stream_token(response)
+    else:
+        for word in llm(prompt, stream=True):
+            await msg.stream_token(word)
+            response += word
     await msg.update()
     message_history.append(response)
 
