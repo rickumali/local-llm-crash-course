@@ -15,6 +15,6 @@ prompt_template = """# System:\nYou are an AI assistant that gives helpful answe
 
 prompt = PromptTemplate(template=prompt_template, input_variables=["instruction"])
 
-chain = LLMChain(llm=llm, prompt=prompt)
+chain = LLMChain(llm=llm, prompt=prompt, verbose=True)
 
 print(chain.invoke({"instruction": "Which city is the capital of India?"}))
