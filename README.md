@@ -7,7 +7,11 @@
 
 ### GitHub Codespaces Billing
 
-https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+Your Codepsaces: https://github.com/codespaces
+
+About Codespaces billing: https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+
+Your bill: https://github.com/settings/billing/summary
 
 ### The Orca Mini 3B Model (HuggingFace)
 
@@ -15,8 +19,15 @@ Model card: https://huggingface.co/zoltanctoth/orca_mini_3B-GGUF
 
 Original model card: https://huggingface.co/pankajmathur/orca_mini_3b
 
-### 
+### CTransformers
+
+Python bindings for [Transformer](https://aws.amazon.com/what-is/transformers-in-artificial-intelligence/#:~:text=Transformers%20are%20a%20type%20of,sequence%20into%20an%20output%20sequence.) models.
+
+https://pypi.org/project/ctransformers/
+
 ### Chainlit
+
+A Python package that quickly makes chat-based AI interfaces.
 
 https://docs.chainlit.io/get-started/overview
 
