@@ -5,7 +5,7 @@ llm = AutoModelForCausalLM.from_pretrained("zoltanctoth/orca_mini_3B-GGUF", mode
 
 def get_prompt(instruction: str) -> str:
     system = "You are an AI assistant that gives helpful answers. You answer the question in a short and concise way."
-    prompt = f"<s>[INST] <<SYS>>\n{system}\n<</SYS>>\n\n{instruction} [/INST]"
+    prompt = f"### System:\n{system}\n\n### User:\n{instruction}\n\n### Response:\n"
     print(prompt)
     return prompt
 
