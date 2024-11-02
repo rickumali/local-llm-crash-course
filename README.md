@@ -9,15 +9,14 @@
 
 https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
 
-### The Open Orca Dataset (HuggingFace)
+### The Orca Mini 3B Model (HuggingFace)
 
-The model card: https://huggingface.co/zoltanctoth/orca_mini_3B-GGUF
+Model card: https://huggingface.co/zoltanctoth/orca_mini_3B-GGUF
 
 Original model card: https://huggingface.co/pankajmathur/orca_mini_3b
 
-The model's dataset: https://huggingface.co/datasets/Open-Orca/OpenOrca
-
-### Chainlit and Streamlit
+### 
+### Chainlit
 
 https://docs.chainlit.io/get-started/overview
 
