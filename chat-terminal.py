@@ -6,13 +6,15 @@ llm = AutoModelForCausalLM.from_pretrained("zoltanctoth/orca_mini_3B-GGUF", mode
 def get_prompt(instruction: str) -> str:
     system = "You are an AI assistant that gives helpful answers. You answer the question in a short and concise way."
     prompt = f"### System:\n{system}\n\n### User:\n{instruction}\n\n### Response:\n"
-    print(prompt)
+    if True:
+        print(prompt)
     return prompt
 
 
-question = "Which city is the capital of India?"
-
-for word in llm(get_prompt(question), stream=True):
-    print(word, end="", flush=True)
-
-print()
+while True:
+    question = input("Q: ")
+    if question.lower() == "quit":
+        break
+    for word in llm(get_prompt(question), stream=True):
+        print(word, end="", flush=True)
+    print()
