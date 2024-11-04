@@ -6,4 +6,4 @@ llm = AutoModelForCausalLM.from_pretrained(
 
 prompt = "The weather seems"
 
-print(llm(prompt, max_new_tokens=50))
+print(llm(prompt))
